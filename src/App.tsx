@@ -1,6 +1,7 @@
-import { greet } from "./utils/greet";
+import { WordView } from "./WordView";
 import data from "../data/spanish-words.json";
 import { useState } from "react";
+
 
 function App(): JSX.Element {
   const [currentWordPosition, setCurrentWordPosition] = useState(0);
