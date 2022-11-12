@@ -1,4 +1,4 @@
-import { WordView } from "./WordView";
+import { WordView } from "./components/WordView";
 import data from "./spanish-words.json";
 import { useState } from "react";
 
