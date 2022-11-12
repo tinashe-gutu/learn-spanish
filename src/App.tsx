@@ -1,8 +1,16 @@
 import { greet } from "./utils/greet";
-import data from "../data/spanish-words.json"
+import data from "../data/spanish-words.json";
+import { useState } from "react";
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+  const [currentWordPosition, setCurrentWordPosition] = useState(0);
+
+  const currentSpanishWord = data[currentWordPosition];
+  return (
+    <div>
+      <WordView word={currentSpanishWord} />
+    </div>
+  );
 }
 
 export default App;
