@@ -1,14 +1,49 @@
-import { WordView } from "./components/WordView";
 import data from "./spanish-words.json";
 import { useState } from "react";
+import { WordView } from "./components/WordView";
+import { Button } from "./components/Button";
+
+interface CardProperties {
+  Spanish: string;
+  English: string;
+}
+
+interface CardCatergory {
+  known: CardProperties[];
+  unkown: CardProperties[];
+}
 
 function App(): JSX.Element {
   const [currentWordPosition, setCurrentWordPosition] = useState(0);
+  const [cardType, setCardType] = useState<CardCatergory>({
+    known: [],
+    unkown: [],
+  });
+
+  function handleKnown() {
+    setCurrentWordPosition(() => currentWordPosition + 1);
+    setCardType(() => ({
+      known: [...cardType.known, currentSpanishWord],
+      unkown: [...cardType.unkown],
+    }));
+  }
+
+  function handleUnknown() {
+    setCurrentWordPosition(() => currentWordPosition + 1);
+    setCardType(() => ({
+      known: [...cardType.known],
+      unkown: [...cardType.unkown, currentSpanishWord],
+    }));
+  }
 
   const currentSpanishWord = data[currentWordPosition];
   return (
     <div>
-      <WordView word={currentSpanishWord} />
+      <div className="header">
+        <WordView word={currentSpanishWord} />
+        <Button onClick={handleKnown} btnName="known"/>
+        <Button onClick={handleUnknown} btnName="unknown"/>
+      </div>
     </div>
   );
 }
