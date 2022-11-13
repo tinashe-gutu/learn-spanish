@@ -2,6 +2,7 @@ import data from "./spanish-words.json";
 import { useState } from "react";
 import { WordView } from "./components/WordView";
 import { Button } from "./components/ButtonView";
+import { WordListView } from "./components/WordListView";
 
 interface CardProperties {
   Spanish: string;
@@ -44,7 +45,10 @@ function App(): JSX.Element {
         <Button onClick={handleKnown} btnName="known" />
         <Button onClick={handleUnknown} btnName="unknown" />
       </div>
-      <div></div>
+      <div>
+        <WordListView known={cardType.known} isKnown={true} />
+        <WordListView known={cardType.unkown} isKnown={false} />
+      </div>
     </div>
   );
 }
