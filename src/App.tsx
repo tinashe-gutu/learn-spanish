@@ -44,7 +44,10 @@ function App(): JSX.Element {
         <Button onClick={handleKnown} btnName="known" />
         <Button onClick={handleUnknown} btnName="unknown" />
       </div>
-      <div></div>
+      <div>
+        <WordListView known={cardType.known}/>
+        <WordListView unknown={cardType.unkown}/>
+      </div>
     </div>
   );
 }
