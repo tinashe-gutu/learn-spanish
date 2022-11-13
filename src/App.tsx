@@ -1,7 +1,7 @@
 import data from "./spanish-words.json";
 import { useState } from "react";
 import { WordView } from "./components/WordView";
-import { Button } from "./components/Button";
+import { Button } from "./components/ButtonView";
 
 interface CardProperties {
   Spanish: string;
