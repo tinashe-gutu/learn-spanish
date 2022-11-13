@@ -41,9 +41,10 @@ function App(): JSX.Element {
     <div>
       <div className="header">
         <WordView word={currentSpanishWord} />
-        <Button onClick={handleKnown} btnName="known"/>
-        <Button onClick={handleUnknown} btnName="unknown"/>
+        <Button onClick={handleKnown} btnName="known" />
+        <Button onClick={handleUnknown} btnName="unknown" />
       </div>
+      <div></div>
     </div>
   );
 }
