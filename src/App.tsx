@@ -49,6 +49,10 @@ function App(): JSX.Element {
         <WordListView known={cardType.known} isKnown={true} />
         <WordListView known={cardType.unkown} isKnown={false} />
       </div>
+      <div>
+        <Button onClick={} btnName="Reset Unknown" />
+        <Button onClick={} btnName="Reset All"/>
+      </div>
     </div>
   );
 }
