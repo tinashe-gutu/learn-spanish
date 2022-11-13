@@ -37,6 +37,13 @@ function App(): JSX.Element {
     }));
   }
 
+  function resetUknowns() {
+    setCardType(() => ({ known: [...cardType.known], unkown: [] }));
+  }
+  function resetAll() {
+    setCardType(() => ({ known: [], unkown: [] }));
+  }
+
   const currentSpanishWord = data[currentWordPosition];
   return (
     <div>
@@ -50,8 +57,8 @@ function App(): JSX.Element {
         <WordListView known={cardType.unkown} isKnown={false} />
       </div>
       <div>
-        <Button onClick={} btnName="Reset Unknown" />
-        <Button onClick={} btnName="Reset All"/>
+        <Button onClick={resetUknowns} btnName="Reset Unknown" />
+        <Button onClick={resetAll} btnName="Reset All" />
       </div>
     </div>
   );
