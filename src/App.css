@@ -1,0 +1,23 @@
+div {
+  border: 1px solid black;
+}
+
+.main-container {
+  width: 70vw;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: flex-end;
+}
+
+button {
+  width: 28.2px 18.6px;
+  font-size: 1em;
+  margin: 0.5rem;
+  background-color: #f9f9f9;
+}

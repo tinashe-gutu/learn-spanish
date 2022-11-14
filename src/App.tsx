@@ -3,6 +3,7 @@ import { useState } from "react";
 import { WordView } from "./components/WordView";
 import { Button } from "./components/ButtonView";
 import { WordListView } from "./components/WordListView";
+import "./App.css";
 
 interface CardProperties {
   Spanish: string;
@@ -37,20 +38,32 @@ function App(): JSX.Element {
     }));
   }
 
+  function resetUknowns() {
+    setCardType(() => ({ known: [...cardType.known], unkown: [] }));
+  }
+  function resetAll() {
+    setCardType(() => ({ known: [], unkown: [] }));
+  }
+
   const currentSpanishWord = data[currentWordPosition];
   return (
-    <div>
+    <div className="main-container">
       <div className="header">
         <WordView word={currentSpanishWord} />
-        <Button onClick={handleKnown} btnName="known" />
-        <Button onClick={handleUnknown} btnName="unknown" />
+        <div className="btn-div">
+          <Button onClick={handleKnown} btnName="known" />
+          <Button onClick={handleUnknown} btnName="unknown" />
+        </div>
       </div>
       <div>
         <WordListView known={cardType.known} isKnown={true} />
         <WordListView known={cardType.unkown} isKnown={false} />
       </div>
+      <div>
+        <Button onClick={resetUknowns} btnName="Reset Unknown" />
+        <Button onClick={resetAll} btnName="Reset All" />
+      </div>
     </div>
   );
 }
-
 export default App;
