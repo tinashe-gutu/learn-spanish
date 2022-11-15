@@ -1,11 +1,26 @@
-interface WordProps{
-    Spanish: string
-    English: string
-}
-interface Word{
-    word:WordProps
+interface CardProperties {
+  [index: string]: number;
 }
 
-export function WordView({word}:Word):JSX.Element{
-    return <h1 className="word">{word.Spanish}</h1>
+interface Letters {
+  word: CardProperties;
+  string: string;
+}
+
+export function WordView({ word, string }: Letters): JSX.Element {
+  let stringObj = ``;
+  for (const [key, value] of Object.entries(word)) {
+    stringObj += `${key}: ${value},`;
+  }
+  return (
+    <>
+      <h2 className="string">
+        <i>current String: </i>
+        {string}
+      </h2>
+      <h3 className="object">
+        <i>Current Object: </i>&#123; {stringObj} &#125;
+      </h3>
+    </>
+  );
 }
